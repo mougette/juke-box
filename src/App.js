@@ -1,12 +1,16 @@
 import './App.css';
+import { Route, Routes } from "react-router-dom"
+import { Home } from "./pages/Home"
+import { CreateRoom } from "./pages/CreateRoom"
+import { JoinRoom } from "./pages/JoinRoom"
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <p>Welcome to the Unnammed JukeBox</p>
-      </header>
-    </div>
+    <Routes>
+      <Route path="/" element={<Home />} />
+      <Route path="/create" element={<CreateRoom />} />
+      <Route path="/join/:id" element={<JoinRoom />} />
+    </Routes>
   );
 }
 
