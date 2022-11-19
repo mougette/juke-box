@@ -4,11 +4,9 @@ import { useState } from 'react';
 export function Home() {
 
   const [roomID, setRoomID] = useState("");
-  let roomId = "";
 
   const handleRoomInput = event => {
     setRoomID(event.target.value);
-    roomId = event.target.value;
     console.log(roomID);
   };
 
@@ -20,11 +18,12 @@ export function Home() {
         type="text"
         id="roomInput"
         name="roomInput"
+        placeholder="Enter Room Code"
         onChange={handleRoomInput}
         value={roomID}
         />
         <Link to={`join/${roomID}`}>
-          <button>Join Room</button>
+          <button disabled={roomID.length !== 4}>Join Room</button>
         </Link>
         <Link to="/create">
           <button>Create Room</button>
